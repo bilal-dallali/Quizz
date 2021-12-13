@@ -1,20 +1,19 @@
-const form = document.querySelector('.form-quizz')
+const form = document.querySelector('.form-quizz');
 let tableauResultats = [];
-const reponses = ['c', 'a', 'b', 'a', 'c'];
+const reponses = ['c','a','b','a','c'];
 const emojis = ['✔️','✨','👀','😭','👎'];
 const titreResultat = document.querySelector('.resultats h2');
-const texteResultat = document.querySelector('.note');
-const aideResultat = document.querySelector('aide');
+const noteResultat = document.querySelector('.note');
+const aideResultat = document.querySelector('.aide');
 const toutesLesQuestions = document.querySelectorAll('.question-block');
 let verifTableau = [];
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    //console.log(document.querySelector('input[name="q1"]:checked').value);
+    // console.log(document.querySelector('input[name="q1"]:checked').value);
 
     for(i = 1; i < 6; i++) {
-
-tableauResultats.push(document.querySelector(`input[name="q${i}"]:checked`).value)
+        tableauResultats.push(document.querySelector(`input[name="q${i}"]:checked`).value)
     }
     // console.log(tableauResultats);
     verifFunc(tableauResultats);
@@ -28,7 +27,7 @@ function verifFunc(tabResultats) {
         if(tabResultats[a] === reponses[a]) {
             verifTableau.push(true);
         } else {
-            verifTableau.push(false)
+            verifTableau.push(false);
         }
 
     }
@@ -80,7 +79,6 @@ function afficherResultats(tabCheck) {
         default:
             'Wops, cas innatendu.';
 
-
     }
 
 }
@@ -88,7 +86,7 @@ function afficherResultats(tabCheck) {
 
 function couleursFonction(tabValBool) {
 
-    for (let j = 0; j < tabValBool.length; j++) {
+    for(let j = 0; j < tabValBool.length; j++){
 
         if(tabValBool[j] === true){
             toutesLesQuestions[j].style.background = 'lightgreen';
@@ -97,10 +95,10 @@ function couleursFonction(tabValBool) {
             toutesLesQuestions[j].classList.add('echec');
 
             setTimeout(() => {
-                toutesLesQuestions[j].classList.remove('echec')
+                toutesLesQuestions[j].classList.remove('echec');
             }, 500)
         }
-
+        
     }
 
 }
@@ -110,3 +108,13 @@ toutesLesQuestions.forEach(item => {
         item.style.background = "white";
     })
 })
+
+
+
+
+
+
+
+
+
+
